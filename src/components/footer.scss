@@ -1,0 +1,42 @@
+footer {
+  text-align: center;
+  position: relative;
+
+  a {
+    color: #b2c4b3;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+  }
+
+  p {
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    top: calc(100vw * 0.705);
+    margin-top: -2rem;
+
+    @media (max-width: 480px) {
+      margin-bottom: 0;
+      padding: 0 2rem;
+
+      span {
+        display: block;
+        padding-bottom: .2em;
+        font-size: 0.65rem;
+
+        &.separator {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .footer-bike {
+    position: absolute;
+    width: 100vw;
+  }
+}

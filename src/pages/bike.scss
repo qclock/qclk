@@ -1,0 +1,50 @@
+.content {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 1.0875rem 1.45rem;
+
+    @media (max-width: 768px) {
+        padding: 0 2rem 0;
+    }
+}
+h2 {
+    padding-top: 2rem;
+    font-size: 2rem;
+    font-variant-caps: all-small-caps;
+    font-weight: normal;
+}
+h2.welcome {
+    color: #d60680;
+}
+h2.pricelist {
+    color: #0fd3ba;
+}
+h3 {
+    font-size: 1.25rem;
+    color: #04a493;
+}
+ul.list {
+    list-style-type: square;
+}
+.welcometext {
+    color: #acb4c4;
+}
+p.pricelisttext {
+    color: #bbb9af;
+    font-size: 0.85rem;
+}
+table.tabletext {
+  td {
+      color: #bbb9af;
+  }
+
+  tr td:first-child {
+    width: 78%;
+  }
+}
+td.price {
+    font-weight: bold;
+}
+span.nowrap {
+    white-space: nowrap;
+}

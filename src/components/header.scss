@@ -1,0 +1,151 @@
+.header {
+    max-width: 64rem;
+    margin: 0 auto;
+    height: 13rem;
+    position: relative;
+    margin-bottom: 4rem;
+
+    display: grid;
+    grid-template-columns: 1fr 140px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "links logo contact";
+    grid-gap: 1rem;
+
+    color: #fff;
+    a {
+      color: #fff;
+    }
+
+    &:after {
+        content: "";
+        height: 84px;
+        width: 100vw;
+        background: #090d11;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        position: absolute;
+        z-index: 1;
+    }
+
+    .contacts,
+    .links {
+      padding-bottom: .8rem;
+      list-style-type: none;
+      align-self: end;
+
+      @media (max-width: 480px) {
+        padding-bottom: 0rem;
+      }
+
+      li {
+        margin: 0;
+        padding: 0 1rem .8rem 0;
+        display: block;
+
+
+      a {
+        text-decoration: none;
+        color: #898f9c;
+
+        &:hover {
+          color: lighten($color: #898f9c, $amount: 25%);
+          text-decoration: underline;
+        }
+      }
+      }
+
+      @media (max-width: 480px) {
+        .link-text {
+          display: none;
+        }
+      }
+
+      svg {
+        height: 1.5rem;
+        margin-top: -2px;
+        vertical-align: middle;
+
+      }
+    }
+
+    .links {
+      grid-area: links;
+      text-align: right;
+
+      li {
+        padding: 0 0 .8rem 1rem;
+      }
+
+      .facebook,
+      .messenger {
+        display: inline-block;
+
+
+        path {
+          fill: #898f9c;
+        }
+
+        &:hover {
+          path {
+            fill: lighten($color: #898f9c, $amount: 25%)
+          }
+        }
+      }
+
+      svg {
+        margin-left: .5rem;
+      }
+
+      .messenger {
+        svg {
+          height: 1.6rem;
+        }
+      }
+    }
+
+    .logo {
+      grid-area: logo;
+      background-image: linear-gradient(to bottom, #ffe400 0%,#ffc000 100%);
+    }
+
+    .contacts {
+      grid-area: contact;
+      list-style-type: none;
+      align-self: end;
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      padding-left: 0;
+
+      svg {
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: #898f9c;
+        padding: 3px;
+        border-radius: 50%;
+        margin-right: .5rem;
+      }
+
+      a:hover svg {
+        background-color: lighten($color: #898f9c, $amount: 25%);
+      }
+
+
+    }
+
+    .links,
+    .logo,
+    .contacts {
+      z-index: 2;
+      position: relative;
+      display: block;
+      margin: 0;
+    }
+}
+
+
+.logo-image {
+  margin: 1rem;
+}
