@@ -19,11 +19,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     'gatsby-plugin-force-trailing-slashes',
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
             family: `Jura`,
+            variable: true,
             variants: [`300`,`500`],
           }
         ],
