@@ -1,0 +1,33 @@
+
+.menu {
+  width: 30vw;
+  height: 30vw;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dot {
+    transition: transform .18s ease-in-out ;
+  }
+
+  &.opened {
+    .dot {
+      transform: translateY(15%);
+    }
+  }
+
+  &.closed {
+    .dot {
+      transform: translateY(0);
+    }
+  }
+}

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -24,10 +24,19 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [ menuState, setMenuState ] = useState('closed')
+
+
   return (
     <>
       <main className="content">{children}</main>
-      {/* <Menu /> */}
+      <Menu
+        state={ menuState }
+        onClick={ () => {
+          const newState = menuState === 'closed' ? 'opened' : 'closed';
+          setMenuState(newState)
+        } }
+      />
     </>
   )
 }

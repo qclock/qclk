@@ -8,13 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sass',
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-force-trailing-slashes',
@@ -37,11 +30,10 @@ module.exports = {
         short_name: `QCLK`,
         start_url: `/`,
         background_color: `#000000`,
-        theme_color: `#EB00FF`,
+        theme_color: `#030303`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
       },
     },
-    'gatsby-plugin-offline',
   ],
 }

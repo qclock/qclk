@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Szabolcs Szabolcsi-Toth<nec@shell8.net>",
   "dependencies": {
+    "clsx": "^1.1.1",
     "gatsby": "^2.23.12",
     "gatsby-image": "^2.4.9",
     "gatsby-plugin-force-trailing-slashes": "^1.0.4",
