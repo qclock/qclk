@@ -1,5 +1,5 @@
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -7,7 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to bottom, #10161d 0%, #212e36 100%);
+  background-color: #030303;
 }
 
 article,
@@ -187,7 +187,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 14px 'Roboto', sans-serif;
+  font: 14px 'Jura', monospace;
   font-weight: 300;
   box-sizing: border-box;
   overflow-y: scroll;
@@ -203,7 +203,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 100%, 0.8);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: 300;
   word-wrap: break-word;
   font-kerning: normal;
@@ -233,7 +233,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -249,7 +249,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -265,7 +265,7 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
@@ -280,7 +280,7 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
@@ -296,7 +296,7 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
@@ -312,7 +312,7 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jura', monospace;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
@@ -615,4 +615,11 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+
+main {
+  text-align: center;
+  padding: 2rem 0;
+  font-weight: 500;
 }
