@@ -1,0 +1,47 @@
+
+.navigation {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  align-content: flex-end;
+
+  .background {
+
+    width: 100vw;
+    height: 100vw;
+    circle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      //transform: translateX(-50%);
+      transition: transform .18s ease-in-out;
+      transform-origin: center;
+      fill: #303030;
+      fill-opacity: 0.8;
+    }
+  }
+
+
+  &.closed {
+    .background circle {
+      transform: scale(0.2) translateY(500%);
+    }
+  }
+
+  &.opened {
+    .background circle {
+      transform: scale(1);
+    }
+  }
+
+
+
+}

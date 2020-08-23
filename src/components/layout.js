@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Menu from "./Menu"
+import Navigation from "./Navigation"
 import Footer from "./footer"
 import "./layout.scss"
 
@@ -36,6 +37,10 @@ const Layout = ({ children }) => {
           const newState = menuState === 'closed' ? 'opened' : 'closed';
           setMenuState(newState)
         } }
+      />
+
+      <Navigation
+        state={ menuState }
       />
     </>
   )
