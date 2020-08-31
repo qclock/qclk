@@ -14,7 +14,7 @@ import clsx from 'clsx';
 import Menu from "./Menu"
 import Navigation from "./Navigation"
 import Footer from "./footer"
-import "./layout.scss"
+// import "./layout.scss"
 import css from "./layout.module.scss"
 
 const Layout = ({ children }) => {
