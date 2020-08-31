@@ -8,7 +8,8 @@ import css from './timewheel.module.scss';
 
 const TimeWheel = () => {
 
-  const [ value, setValue ] = useState(0)
+  const [ minuteValue, setMinuteValue ] = useState(0)
+  const [ hourValue, setHourValue ] = useState(0)
 
 
 
@@ -16,15 +17,15 @@ const TimeWheel = () => {
 
   return (<div className={ css.timewheel }>
     <Dial
-      value={ value }
-      onChange={v => setValue(v)}
+      value={ minuteValue }
+      onChange={ v => setMinuteValue(v) }
       className={ clsx(css.wheel, css.minute) }
     >
       <div className={ css.dot }></div>
     </Dial>
     <Dial
-      value={ value }
-      onChange={v => setValue(v)}
+      value={ hourValue }
+      onChange={ v => setHourValue(v) }
       className={ clsx(css.wheel, css.hour) }
     >
       <div className={ css.dot }></div>

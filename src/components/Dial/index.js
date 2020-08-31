@@ -15,10 +15,12 @@ const Dial = ({ value, className, onChange, children}) => {
   const container = useRef(null);
 
   const setCSSvariable = (angle) => {
+    console.log('setCSSvariable', angle)
     container.current.style.setProperty(`--dialRotation`, (angle) + 'deg');
   }
 
   useEffect(() => {
+    console.log('useEffect', angle)
     setCSSvariable(angle)
   }, [false]);
 
