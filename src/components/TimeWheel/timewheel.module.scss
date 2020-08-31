@@ -10,8 +10,8 @@
     position: absolute;
 
     .dot {
-      width: 3vw;
-      height: 3vw;
+      width: 4vw;
+      height: 4vw;
       border-radius: 50%;
       position: absolute;
 
@@ -23,7 +23,7 @@
   .minute {
     z-index: 2;
     .dot {
-      top: 1.6rem;
+      top: 1.3rem;
       background-color: #EB00FF;
     }
   }
@@ -34,7 +34,7 @@
     height: 75%;
 
     .dot {
-      top: 1.2rem;
+      top: 2rem;
       background-color: #0094FF;
     }
   }
@@ -60,7 +60,7 @@
   }
   .arc::after {
     content: '';
-    clip-path: circle(40.6% at 50% 50%);
+    clip-path: circle(37% at 50% 50%);
     background-color: black;
   }
 }
