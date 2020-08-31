@@ -1,6 +1,6 @@
 .timewheel {
-  width: 90vw;
-  height: 90vw;
+  width: 100vw;
+  height: 100vw;
   position: relative;
   overflow: hidden;
 
@@ -12,7 +12,7 @@
       height: 3vw;
       border-radius: 50%;
       position: absolute;
-      top: .5rem;
+
       left: 50%;
       transform: translateX(-50%);
     }
@@ -21,6 +21,7 @@
   .minute {
     z-index: 2;
     .dot {
+      top: 1.6rem;
       background-color: red;
     }
   }
@@ -29,7 +30,9 @@
     z-index: 3;
     width: 75%;
     height: 75%;
+
     .dot {
+      top: 1.2rem;
       background-color: green;
     }
   }
@@ -42,8 +45,8 @@
     top: 50%;
     transform: translate(-50%, -50%) rotate(var(--dialRotation));
     box-sizing: border-box;
-    width: 81vw;
-    height: 81vw;
+    width: 80vw;
+    height: 80vw;
     border: none;
     border-radius: 50%;
     user-select: none;

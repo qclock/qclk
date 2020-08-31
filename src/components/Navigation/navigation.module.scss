@@ -6,7 +6,7 @@
   transform: translateX(-50%);
 
   width: 100vw;
-  height: 100vw;
+  height: 60vw;
   overflow: hidden;
 
   display: flex;
@@ -67,8 +67,10 @@
 
 
   &.closed {
+    z-index: 1;
+
     .background circle {
-      transform: translateY(56vh) scale(0);
+      transform: translateY(43vh) scale(0);
     }
 
     .nav {
@@ -77,8 +79,10 @@
   }
 
   &.opened {
+    z-index: 9;
+
     .background circle {
-      transform: translateY(56vh) scale(1);
+      transform: translateY(43vh) scale(1);
     }
   }
 
