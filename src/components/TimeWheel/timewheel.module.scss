@@ -1,0 +1,62 @@
+.timewheel {
+  width: 90vw;
+  height: 90vw;
+  position: relative;
+  overflow: hidden;
+
+  .wheel {
+    position: absolute;
+
+    .dot {
+      width: 3vw;
+      height: 3vw;
+      border-radius: 50%;
+      position: absolute;
+      top: .5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .minute {
+    z-index: 2;
+    .dot {
+      background-color: red;
+    }
+  }
+
+  .hour {
+    z-index: 3;
+    width: 75%;
+    height: 75%;
+    .dot {
+      background-color: green;
+    }
+  }
+
+  .arc, .arc::after {
+    --dialRotation: 0deg;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(var(--dialRotation));
+    box-sizing: border-box;
+    width: 81vw;
+    height: 81vw;
+    border: none;
+    border-radius: 50%;
+    user-select: none;
+    clip-path: circle(48% at 50% 50%);
+    overflow: hidden;
+    cursor: pointer;
+    backface-visibility: hidden;
+    background-color: gray;
+  }
+  .arc::after {
+    content: '';
+    clip-path: circle(40.6% at 50% 50%);
+    background-color: black;
+  }
+}
+

@@ -1,8 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+
+import TimeWheel from '../components/TimeWheel'
 
 const IndexPage = () => {
 
@@ -10,6 +12,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="QCLK" />
+
+      <TimeWheel
+        date={ new Date() }
+        onChange={ (v) => {
+          console.log(v)
+        }}
+      />
+
     </Layout>
   )
 }

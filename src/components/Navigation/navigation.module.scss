@@ -29,19 +29,6 @@
     }
   }
 
-
-  &.closed {
-    .background circle {
-      transform: translateY(56vh) scale(0);
-    }
-  }
-
-  &.opened {
-    .background circle {
-      transform: translateY(56vh) scale(1);
-    }
-  }
-
   .nav {
     position: absolute;
     bottom: 0;
@@ -74,10 +61,26 @@
           margin: 0 calc((100vw - 16vw) / 2)
         }
       }
-
-
     }
 
   }
+
+
+  &.closed {
+    .background circle {
+      transform: translateY(56vh) scale(0);
+    }
+
+    .nav {
+      display: none;
+    }
+  }
+
+  &.opened {
+    .background circle {
+      transform: translateY(56vh) scale(1);
+    }
+  }
+
 
 }

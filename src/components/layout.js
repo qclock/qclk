@@ -7,12 +7,15 @@
 
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import clsx from 'clsx';
 
 import Menu from "./Menu"
 import Navigation from "./Navigation"
 import Footer from "./footer"
 import "./layout.scss"
+import css from "./layout.module.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,9 +31,12 @@ const Layout = ({ children }) => {
   const [ menuState, setMenuState ] = useState('closed')
 
 
-  return (
-    <>
-      <main className="content">{children}</main>
+  return (<>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+      </Helmet>
+      <main className={ css.content }>{children}</main>
       <Menu
         state={ menuState }
         onClick={ () => {
@@ -42,8 +48,7 @@ const Layout = ({ children }) => {
       <Navigation
         state={ menuState }
       />
-    </>
-  )
+    </>)
 }
 
 Layout.propTypes = {
