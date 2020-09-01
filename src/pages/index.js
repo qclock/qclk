@@ -16,7 +16,7 @@ const IndexPage = () => {
       <TimeWheel
         time={ new Date() }
         onChange={ (v) => {
-          console.log(v)
+          //console.log(v)
         }}
       />
 
