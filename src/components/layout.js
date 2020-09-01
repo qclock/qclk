@@ -35,6 +35,8 @@ const Layout = ({ children }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
       </Helmet>
       <main className={ css.content }>{children}</main>
       <Menu
