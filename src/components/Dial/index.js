@@ -14,14 +14,10 @@ const Dial = ({ value, className, onChange, children}) => {
 
   const container = useRef(null);
 
-  const setCSSvariable = (angle) => {
-    console.log('setCSSvariable', angle)
-    container.current.style.setProperty(`--dialRotation`, (angle) + 'deg');
-  }
+  const setCSSvariable = (angle) => container.current.style.setProperty(`--dialRotation`, (angle) + 'deg');
 
   useEffect(() => {
-    console.log('useEffect', angle)
-    setCSSvariable(angle)
+    setCSSvariable(angle);
   }, [false]);
 
 	const getValue = (event, callback) => {
@@ -34,24 +30,17 @@ const Dial = ({ value, className, onChange, children}) => {
 
 	const setValue = (value) => {
     if (value === angle) return;
-
-    setAngle(value)
+    setAngle(value);
     onChange(rotateAngle90(value));
-
-		setCSSvariable(angle)
+		setCSSvariable(angle);
 	}
 
 	const onSelecting = (event) => {
-		//event.preventDefault();
-
 		if (!selecting) return;
-
 		getValue(event, value => setValue(value));
 	}
 
 	const selectStart = (event) => {
-    //event.preventDefault();
-
 		getTouchAngle(event, (grabAngle) => {
       setGrabAngle(grabAngle);
       setSelecting(true);
@@ -59,10 +48,9 @@ const Dial = ({ value, className, onChange, children}) => {
 	}
 
 	const selectEnd = (event) => {
-    //event.preventDefault();
-
 		getValue(event, (angle) => {
       setValue(-1 * angle);
+      setNewAngle(-1 * angle);
       setSelecting(false);
 		});
 	}
