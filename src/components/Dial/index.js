@@ -50,8 +50,10 @@ const Dial = ({ value, className, onChange, children}) => {
 
 	const selectEnd = (event) => {
 		getValue(event, (angle) => {
-      setValue(-1 * angle);
+
+      setValue(1 * angle);
       setNewAngle(-1 * angle);
+
       setSelecting(false);
 		});
 	}
