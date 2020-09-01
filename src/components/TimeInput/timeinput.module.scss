@@ -12,11 +12,6 @@
     appearance: none;
     border: none;
     background: transparent;
-    color: $highlight;
-    font-family: 'Jura', monospace;
-    font-weight: 300;
-    font-size: 2.5rem;
-    text-align: center;
     width: 16vw;
 
     &.minute {
@@ -28,10 +23,17 @@
   }
 
   span {
-    color: $highlight;
-    font-size: 2.5rem;
+    text-align: center;
     transform: translateY(-.2rem);
     animation: tick 1s infinite;
+    width: 3vw;
+  }
+
+  input, span {
+    font-family: 'Jura', monospace;
+    font-weight: 300;
+    font-size: 2rem;
+    color: $highlight;
   }
 
 
