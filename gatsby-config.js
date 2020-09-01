@@ -17,8 +17,7 @@ module.exports = {
         fonts: [
           {
             family: `Jura`,
-            variable: true,
-            variants: [`300`,`500`],
+            variants: [300,500],
           }
         ],
       },

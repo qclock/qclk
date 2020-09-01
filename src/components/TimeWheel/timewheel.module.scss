@@ -22,6 +22,7 @@
 
   .minute {
     z-index: 2;
+
     .dot {
       top: 1.3rem;
       background-color: #EB00FF;
@@ -62,6 +63,14 @@
     content: '';
     clip-path: circle(37% at 50% 50%);
     background-color: black;
+  }
+
+  .timeinput {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 }
 

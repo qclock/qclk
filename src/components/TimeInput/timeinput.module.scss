@@ -1,0 +1,51 @@
+@import '../colors.scss';
+
+.timeinput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  input {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: $highlight;
+    font-family: 'Jura', monospace;
+    font-weight: 300;
+    font-size: 2.5rem;
+    text-align: center;
+    width: 16vw;
+
+    &.minute {
+      text-align: left;
+    }
+    &.hour {
+      text-align: right;
+    }
+  }
+
+  span {
+    color: $highlight;
+    font-size: 2.5rem;
+    transform: translateY(-.2rem);
+    animation: tick 1s infinite;
+  }
+
+
+}
+
+
+@keyframes tick {
+  0% {
+    opacity: .8;
+  }
+  50% {
+    opacity: .3;
+  }
+  100% {
+    opacity: .8;
+  }
+}

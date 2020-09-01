@@ -18,7 +18,8 @@ const Dial = ({ value, className, onChange, children}) => {
 
   useEffect(() => {
     setCSSvariable(angle);
-  }, [false]);
+    setAngle(rotateAngle90Back(value));
+  }, [value]);
 
 	const getValue = (event, callback) => {
 		getTouchAngle(event, (touchAngle) => {
