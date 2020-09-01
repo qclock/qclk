@@ -30,7 +30,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#000000`,
-        display: `standalone`,
+        display: `fullscreen`,
         orientation: 'portrait',
         icon: `src/images/logo.png`,
       },
