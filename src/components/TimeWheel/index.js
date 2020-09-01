@@ -60,20 +60,22 @@ const TimeWheel = (props) => {
 
 
   return (<div className={ css.timewheel }>
-    <Dial
-      value={ minuteValue }
-      onChange={ v => onMinuteDial(v) }
-      className={ clsx(css.wheel, css.minute) }
-    >
-      <div className={ css.dot }></div>
-    </Dial>
-    <Dial
-      value={ hourValue }
-      onChange={ v => onHourDial(v) }
-      className={ clsx(css.wheel, css.hour) }
-    >
-      <div className={ css.dot }></div>
-    </Dial>
+    <div className={ css.dials }>
+      <Dial
+        value={ minuteValue }
+        onChange={ v => onMinuteDial(v) }
+        className={ clsx(css.wheel, css.minute) }
+      >
+        <div className={ css.dot }></div>
+      </Dial>
+      <Dial
+        value={ hourValue }
+        onChange={ v => onHourDial(v) }
+        className={ clsx(css.wheel, css.hour) }
+      >
+        <div className={ css.dot }></div>
+      </Dial>
+    </div>
     <TimeInput
       className={ css.timeinput }
       time={ time }

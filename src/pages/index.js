@@ -14,7 +14,7 @@ const IndexPage = () => {
       <SEO title="QCLK" />
 
       <TimeWheel
-        date={ new Date() }
+        time={ new Date() }
         onChange={ (v) => {
           console.log(v)
         }}

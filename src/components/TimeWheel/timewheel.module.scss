@@ -6,6 +6,15 @@
   position: relative;
   overflow: hidden;
 
+  .dials {
+    position: absolute;
+    z-index: 5;
+    width: 100vw;
+    height: 100vw;
+    transform-origin: center center;
+    transform: rotate(90deg);
+  }
+
   .wheel {
     position: absolute;
 
