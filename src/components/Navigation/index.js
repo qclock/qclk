@@ -35,7 +35,7 @@ const SettingsIcon = () => (<svg className={css.icon} width="64" height="64" vie
   </defs>
 </svg>)
 
-const Navigation = ({ state }) => (
+const Navigation = ({ state }) => (<>
   <div className={ clsx(css.navigationPanel, css[state]) }>
     <nav className={ css.nav }>
       <ul className={ css.menuitems }>
@@ -49,6 +49,8 @@ const Navigation = ({ state }) => (
       <circle cx="206" cy="138" r="448" />
     </svg>
   </div>
+  <div className={ clsx(css.backblur, css[state]) }></div>
+</>
 )
 
 Navigation.propTypes = {
