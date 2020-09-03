@@ -10,9 +10,9 @@ const Navigation = ({ state }) => (
   <div className={ clsx(css.navigationPanel, css[state]) }>
     <nav className={ css.nav }>
       <ul className={ css.menuitems }>
-        <li className={ css.menuitem }>Design</li>
-        <li className={ css.menuitem }>Time</li>
-        <li className={ css.menuitem }>Night Mode</li>
+        <li className={ clsx(css.menuitem, css.menu_design) }>Design</li>
+        <li className={ clsx(css.menuitem, css.menu_time) }>Time</li>
+        <li className={ clsx(css.menuitem, css.menu_nightmode) }>Night Mode</li>
         <li className={ clsx(css.menuitem, css.menu_settings) }>Settings</li>
       </ul>
     </nav>
