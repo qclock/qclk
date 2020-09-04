@@ -1,8 +1,9 @@
 @import '../colors.scss';
+
 .spectrum {
   clip-path: circle(48% at 50% 50%); // override dial's
-  width: 75%;
-  height: 75%;
+  width: 80vw;
+  height: 80vw;
   position: absolute;
   z-index: 1;
   left: 50%;
