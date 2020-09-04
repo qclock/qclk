@@ -11,14 +11,14 @@ const degreesToMinutes = (deg) => Math.floor( (deg / (360 / 60) ));
 
 const degreesToHours = (deg) => Math.floor( (deg / (360 / 12) ));
 
-const minutesToDegrees = (minutes) => minutes * (360 / 60);
+const minutesToDegrees = (minutes) => minutes.getMinutes() * (360 / 60);
 
-const hoursToDegrees = (hours) => hours * (360 / 12);
+const hoursToDegrees = (time) => ((time.getHours() * (360 / 12)) + ((360 / 12) * (time.getMinutes() / 60)));
 
 const TimeWheel = (props) => {
   const [ time, setTime ] = useState(props.time);
-  const [ minuteValue, setMinuteValue ] = useState(minutesToDegrees(time.getMinutes()));
-  const [ hourValue, setHourValue ] = useState(hoursToDegrees(time.getHours()));
+  const [ minuteValue, setMinuteValue ] = useState(minutesToDegrees(time));
+  const [ hourValue, setHourValue ] = useState(hoursToDegrees(time));
   const [ meridiem, setMeridiem ] = useState(new Date(time).getHours() < 12 ? -1 : 1);
 
   const onMinuteDial = (deg) => {
@@ -28,6 +28,11 @@ const TimeWheel = (props) => {
     newTime.setMinutes(minutes);
 
     setTime(newTime);
+
+
+    setHourValue(hoursToDegrees(newTime));
+
+
     props.onChange(newTime);
   }
 
@@ -54,6 +59,7 @@ const TimeWheel = (props) => {
 
     newTime.setHours(hours);
 
+    setMinuteValue(minutesToDegrees(newTime));
     setTime(newTime);
     props.onChange(newTime);
   }
@@ -82,8 +88,8 @@ const TimeWheel = (props) => {
       onChange={ t => {
         const newTime = new Date(t)
         setTime(newTime);
-        setMinuteValue(minutesToDegrees(newTime.getMinutes()));
-        setHourValue(hoursToDegrees(newTime.getHours()));
+        setMinuteValue(minutesToDegrees(newTime));
+        setHourValue(hoursToDegrees(newTime));
       } }
     />
     <div className={ css.arc }></div>
