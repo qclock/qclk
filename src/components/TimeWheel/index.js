@@ -28,11 +28,7 @@ const TimeWheel = (props) => {
     newTime.setMinutes(minutes);
 
     setTime(newTime);
-
-
     setHourValue(hoursToDegrees(newTime));
-
-
     props.onChange(newTime);
   }
 
@@ -51,6 +47,11 @@ const TimeWheel = (props) => {
         newMeridiem = -1
     }
 
+    const mins = Math.floor(((deg / (360 / 12)) % hours) * 60)
+    newTime.setMinutes(mins);
+
+    setMinuteValue(minutesToDegrees(newTime));
+
     if (newMeridiem > 0) {
       hours = 12 + hours
     }
@@ -59,7 +60,6 @@ const TimeWheel = (props) => {
 
     newTime.setHours(hours);
 
-    setMinuteValue(minutesToDegrees(newTime));
     setTime(newTime);
     props.onChange(newTime);
   }
