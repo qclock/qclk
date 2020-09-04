@@ -12,7 +12,6 @@ const colorReducer = (state, action) => {
     })
 }
 
-
 export default () => {
   const context = useContext(Context)
 

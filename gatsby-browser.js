@@ -8,7 +8,7 @@
 import React from 'react'
 import Provider from './src/state/provider';
 
-export const wrapRootElement = ({element}) => {
+export const wrapPageElement = ({element}) => {
   return (
     <Provider>
       {element}

@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef} from 'react';
 import Context from './context';
 import initialState from './initialstate'
 
-export default ({ children }) => {
+const Provider = ({ children }) => {
   const [state, setState] = useState(initialState);
-
   const container = useRef(null);
   const setCSSvariable = (property, h, s, l) => container.current.style.setProperty(`--${property}`, `hsl(${h}, ${s}%, ${l}%)`);
 
@@ -20,7 +19,6 @@ export default ({ children }) => {
     state.minute.saturation,
     state.minute.lightness,
   ])
-
 
   useEffect(() => {
     setCSSvariable(
@@ -45,3 +43,5 @@ export default ({ children }) => {
   </div>
   </Context.Provider>);
 };
+
+export default Provider
