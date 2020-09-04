@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from 'clsx';
-
-import { Link, useStaticQuery, graphql } from "gatsby"
-
 import css from './menu.module.scss'
 
 const Menu = ({ state, onClick }) => (

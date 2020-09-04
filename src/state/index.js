@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Context from './context'
 
 const colorReducer = (state, action) => {
@@ -26,7 +26,7 @@ export default () => {
   const context = useContext(Context)
 
   const dispatch = (action) => {
-    let newState = context.state;
+    let newState;
     switch(action.type) {
       case 'color':
         newState = colorReducer(context.state, action)
@@ -34,6 +34,8 @@ export default () => {
       case 'time':
         newState = timeReducer(context.state, action)
         break;
+      default:
+        newState = context.state;
     }
     context.setState(newState)
   }

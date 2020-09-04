@@ -8,28 +8,12 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import clsx from 'clsx';
-
 import Menu from "./Menu"
 import Navigation from "./Navigation"
-import Footer from "./footer"
-// import "./layout.scss"
 import css from "./layout.module.scss"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const [ menuState, setMenuState ] = useState('closed')
-
 
   return (<>
       <Helmet>

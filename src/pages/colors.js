@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useAppState from '../state'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
