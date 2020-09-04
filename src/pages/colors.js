@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
-
+import useAppState from '../state'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
-import useAppState from '../state'
-
 import ColorWheel from '../components/ColorWheel'
 
 const IndexPage = () => {

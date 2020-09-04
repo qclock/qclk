@@ -1,4 +1,5 @@
 export default {
+  time: new Date(),
   minute: {
     hue: 123,
     saturation: 100,

@@ -12,16 +12,30 @@ const colorReducer = (state, action) => {
     })
 }
 
+const timeReducer = (state, action) => {
+  return Object.assign(
+    {},
+    state,
+    {
+      time: action.value
+    }
+  );
+}
+
 export default () => {
   const context = useContext(Context)
 
   const dispatch = (action) => {
+    let newState = context.state;
     switch(action.type) {
       case 'color':
-        const newState = colorReducer(context.state, action)
-        context.setState(newState)
+        newState = colorReducer(context.state, action)
+        break;
+      case 'time':
+        newState = timeReducer(context.state, action)
+        break;
     }
-
+    context.setState(newState)
   }
 
   return [ context.state, dispatch ]
