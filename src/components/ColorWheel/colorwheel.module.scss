@@ -71,7 +71,7 @@
   .arc::after {
     content: '';
     clip-path: circle(37% at 50% 50%);
-    background-color: black;
+    background-color: $background;
   }
 
   .timeinput {
