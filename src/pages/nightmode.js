@@ -1,16 +1,15 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import TimeWheel from '../components/TimeWheel'
+import Dimmer from '../components/Dimmer'
 
-const IndexPage = () => {
-
+const NightMode = () => {
 
   return (
     <Layout>
       <SEO title="QCLK" />
 
-      <TimeWheel
+      <Dimmer
         time={ new Date() }
         onChange={ (v) => {
           //console.log(v)
@@ -21,4 +20,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default NightMode

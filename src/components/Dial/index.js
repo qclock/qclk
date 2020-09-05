@@ -5,10 +5,10 @@ import clsx from 'clsx';
 import css from './dial.module.scss';
 import { getTouchAngle, rotateAngle90, rotateAngle90Back } from './tools';
 
-const Dial = ({ value, className, onChange, children}) => {
+const Dial = ({ value, className, min, max, onChange, children }) => {
 
   const [ selecting, setSelecting ] = useState(false);
-  const [ angle, setAngle ] = useState(rotateAngle90Back(value));
+  const [ angle, setAngle ] = useState(rotateAngle90Back(Math.max(value, min)));
   const [ newAngle, setNewAngle ] = useState(-1 * angle);
   const [ grabAngle, setGrabAngle ] = useState(0);
 
@@ -24,13 +24,19 @@ const Dial = ({ value, className, onChange, children}) => {
 	const getValue = (event, callback) => {
 		getTouchAngle(event, (touchAngle) => {
 			const angleDiff = touchAngle - grabAngle;
-			const value = (-1 * (newAngle + angleDiff)) % 360;
+      const value = (-1 * (newAngle + angleDiff)) % 360;
+
+      console.log('getValue', rotateAngle90(value))
+
 			callback(value);
 		});
   }
 
 	const setValue = (value) => {
+    console.log('setValue', value)
+
     if (value === angle) return;
+
     setAngle(value);
     onChange(rotateAngle90(value));
 		setCSSvariable(angle);
@@ -38,7 +44,20 @@ const Dial = ({ value, className, onChange, children}) => {
 
 	const onSelecting = (event) => {
 		if (!selecting) return;
-		getValue(event, value => setValue(value));
+		getValue(event, angle => {
+
+      if (rotateAngle90(angle) < min) {
+        setValue(min)
+        return
+      }
+
+      if (rotateAngle90(angle) > max) {
+        setValue(max)
+        return
+      }
+
+      setValue(angle)
+    });
 	}
 
 	const selectStart = (event) => {
@@ -51,10 +70,22 @@ const Dial = ({ value, className, onChange, children}) => {
 	const selectEnd = (event) => {
 		getValue(event, (angle) => {
 
-      setValue(1 * angle);
-      setNewAngle(-1 * angle);
-
       setSelecting(false);
+
+      if (rotateAngle90(angle) < min) {
+        setValue(min);
+        setNewAngle(-1 * min);
+        return
+      }
+
+      if (rotateAngle90(angle) > max) {
+        setValue(max);
+        setNewAngle(-1 * max);
+        return
+      }
+
+      setValue(angle);
+      setNewAngle(-1 * angle);
 		});
 	}
 
@@ -77,11 +108,15 @@ Dial.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.number,
   className: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
 }
 
 Dial.defaultProps = {
   value: 0,
   className: '',
+  min: 0,
+  max: 359,
 }
 
 export default Dial

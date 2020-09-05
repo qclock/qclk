@@ -1,0 +1,99 @@
+@import '../colors.scss';
+
+.dimmer {
+  width: 100vw;
+  height: 100vw;
+  position: relative;
+  overflow: hidden;
+
+  .dials {
+    position: absolute;
+    z-index: 5;
+    width: 100vw;
+    height: 100vw;
+    transform-origin: center center;
+
+    //transform: rotate(90deg);
+  }
+
+  .wheel {
+    position: absolute;
+
+    .dot {
+      width: 4vw;
+      height: 4vw;
+      border-radius: 50%;
+      position: absolute;
+
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .minute {
+    z-index: 3;
+
+    .dot {
+      top: 1.3rem;
+      background-color: $highlight;
+    }
+  }
+
+  .hour {
+    z-index: 4;
+    width: 75%;
+    height: 75%;
+
+    .dot {
+      top: 2rem;
+      background-color: $highlight;
+    }
+  }
+
+  .arc_clip {
+    clip-path: polygon(50% 0%, 140% 0, 50% 50%, 0 20%);
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .arc, .arc::after {
+    --dialRotation: 0deg;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 80vw;
+    height: 80vw;
+    border: none;
+    border-radius: 50%;
+    user-select: none;
+    clip-path: circle(48% at 50% 50%);
+    overflow: hidden;
+    cursor: pointer;
+    backface-visibility: hidden;
+    background-color: $frame;
+  }
+  .arc::after {
+    content: '';
+    clip-path: circle(37% at 50% 50%);
+    background-color: black;
+  }
+
+  .timeinput {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
