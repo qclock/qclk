@@ -10,13 +10,12 @@ const IndexPage = () => {
   return (<Layout>
     <SEO title="QCLK" />
     <ColorWheel
-      minute={ state.minute }
-      hour={ state.hour }
-      onChange={ (arm, prop, value) => {
+      minute={ state.color.minute }
+      hour={ state.color.hour }
+      onChange={ (arm, value) => {
         dispatch({
           type: 'color',
           arm,
-          prop,
           value,
         })
       }}

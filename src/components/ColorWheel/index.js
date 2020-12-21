@@ -10,31 +10,31 @@ const ColorWheel = ({ minute, hour, onChange }) => {
   const saturation = 100;
   const lightness = 50;
 
-  const [ minuteHue, setMinuteHue ] = useState(minute.hue);
-  const [ hourHue, setHourHue ] = useState(hour.hue);
+  const [ minuteHue, setMinuteHue ] = useState(minute[0]);
+  const [ hourHue, setHourHue ] = useState(hour[0]);
 
-  const setMinute = (prop, value) => {
-    setMinuteHue(value)
-    onChange('minute', prop, value)
+  const setMinute = (hue) => {
+    setMinuteHue(hue)
+    onChange('minute', [hue, minute[1], minute[2]])
   }
 
-  const setHour = (prop, value) => {
-    setHourHue(value)
-    onChange('hour', prop, value)
+  const setHour = (hue) => {
+    setHourHue(hue)
+    onChange('hour', [hue, hour[1], hour[2]])
   }
 
   return (<div className={ css.timewheel }>
     <div className={ css.dials }>
       <Dial
         value={ minuteHue }
-        onChange={ v => setMinute('hue', v) }
+        onChange={ hue => setMinute(hue) }
         className={ clsx(css.wheel, css.minute) }
       >
         <div className={ css.dot }></div>
       </Dial>
       <Dial
         value={ hourHue }
-        onChange={ v => setHour('hue', v) }
+        onChange={ hue => setHour(hue) }
         className={ clsx(css.wheel, css.hour) }
       >
         <div className={ css.dot }></div>
@@ -46,14 +46,14 @@ const ColorWheel = ({ minute, hour, onChange }) => {
 
 ColorWheel.propTypes = {
   onChange: PropTypes.func.isRequired,
-  minute: PropTypes.object,
-  hour: PropTypes.object,
+  minute: PropTypes.array,
+  hour: PropTypes.array,
   className: PropTypes.string,
 }
 
 ColorWheel.defaultProps = {
-  minute: { hue: 295 },
-  hour: { hue: 205 },
+  minute: [295, 50, 100],
+  hour: [ 205, 50, 100],
   className: '',
 }
 

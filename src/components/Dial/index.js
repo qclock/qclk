@@ -43,7 +43,10 @@ const Dial = ({ value, className, min, max, onChange, children }) => {
 	}
 
 	const onSelecting = (event) => {
-		if (!selecting) return;
+    if (!selecting) return;
+
+    console.log('onSelecting')
+
 		getValue(event, angle => {
 
       if (rotateAngle90(angle) < min) {
@@ -62,25 +65,44 @@ const Dial = ({ value, className, min, max, onChange, children }) => {
 
 	const selectStart = (event) => {
 		getTouchAngle(event, (grabAngle) => {
+      console.log('selectStart grabAngle', grabAngle)
       setGrabAngle(grabAngle);
       setSelecting(true);
 		});
 	}
 
 	const selectEnd = (event) => {
+
 		getValue(event, (angle) => {
 
       setSelecting(false);
 
+      console.log('selectEnd',
+        {
+          angle,
+          rotateAngle90: rotateAngle90(angle),
+          rotateAngle90Back: rotateAngle90Back(angle),
+          rotateMin90Back: rotateAngle90Back(min),
+          rotateMin90: rotateAngle90(min),
+          rotateMax90: rotateAngle90(max),
+          rotateMax90Back: rotateAngle90Back(max),
+          min,
+          max
+        }
+      )
+
       if (rotateAngle90(angle) < min) {
+        //setValue(min);
         setValue(min);
         setNewAngle(-1 * min);
+        console.log('selectEnd')
         return
       }
 
       if (rotateAngle90(angle) > max) {
         setValue(max);
         setNewAngle(-1 * max);
+        console.log('selectEnd')
         return
       }
 

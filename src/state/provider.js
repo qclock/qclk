@@ -6,32 +6,30 @@ const Provider = ({ children }) => {
   const [state, setState] = useState(initialState);
   const container = useRef(null);
   const setCSSvariable = (property, h, s, l) => container.current.style.setProperty(`--${property}`, `hsl(${h}, ${s}%, ${l}%)`);
+  const {
+    color: {
+      hour,
+      minute
+    }
+  } = state;
 
   useEffect(() => {
     setCSSvariable(
       'minuteArmColor',
-      state.minute.hue,
-      state.minute.saturation,
-      state.minute.lightness
+      minute[0],
+      minute[1],
+      minute[2],
     )
-  }, [
-    state.minute.hue,
-    state.minute.saturation,
-    state.minute.lightness,
-  ])
+  }, minute)
 
   useEffect(() => {
     setCSSvariable(
       'hourArmColor',
-      state.hour.hue,
-      state.hour.saturation,
-      state.hour.lightness
+      hour[0],
+      hour[1],
+      hour[2],
     )
-  }, [
-    state.hour.hue,
-    state.hour.saturation,
-    state.hour.lightness,
-  ])
+  }, hour)
 
   return (<Context.Provider
     value={{

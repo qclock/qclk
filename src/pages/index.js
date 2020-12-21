@@ -11,10 +11,11 @@ const IndexPage = () => {
       <SEO title="QCLK" />
       <TimeWheel
         time={ state.time }
-        onChange={ (value) => dispatch({
+        onChange={ (value) => {
+          dispatch({
             type: 'time',
             value,
-          })
+          })}
         }
       />
 

@@ -1,14 +1,17 @@
 
 import { useContext } from 'react';
 import Context from './context'
+import remote from './remote'
 
 const colorReducer = (state, action) => {
-  const armData = Object.assign({}, state[action.arm], { [action.prop]: action.value } );
+  const color = Object.assign({}, state.color, {
+    [action.arm]: action.value
+  })
   return Object.assign(
     {},
     state,
     {
-      [action.arm]: armData
+      color
     })
 }
 
@@ -25,6 +28,23 @@ const timeReducer = (state, action) => {
 export default () => {
   const context = useContext(Context)
 
+  remote.addListener((remoteState) => {
+    console.log(remoteState, context.state)
+
+    const newState = Object.assign({}, context.state,
+      {
+        color: remoteState.color
+      },
+      {
+        time: new Date(remoteState.datetime)
+      },
+      {
+        dim: remoteState.dim
+      }
+    )
+    context.setState(newState)
+  })
+
   const dispatch = (action) => {
     let newState;
     switch(action.type) {
@@ -38,6 +58,7 @@ export default () => {
         newState = context.state;
     }
     context.setState(newState)
+    remote.upload(newState)
   }
 
   return [ context.state, dispatch ]
