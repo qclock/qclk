@@ -1,3 +1,5 @@
+import WebSocket  from 'isomorphic-ws'
+
 export default new class {
 
   collectTimer = 0
@@ -9,7 +11,9 @@ export default new class {
     this.socket = new WebSocket(`ws://${this.remoteAddress}/`);
 
     this.socket.addEventListener('message', (e) => {
-      this.onUpdate(JSON.parse(e.data))
+      if (this.onUpdate) {
+        this.onUpdate(JSON.parse(e.data))
+      }
     })
   }
 

@@ -1,4 +1,5 @@
 export default {
+  connected: false,
   time: new Date(),
   color: {
     hour: [ 230, 100, 50 ],

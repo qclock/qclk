@@ -8,11 +8,12 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import clsx from 'clsx';
 import Menu from "./Menu"
 import Navigation from "./Navigation"
 import css from "./layout.module.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ connected, children }) => {
   const [ menuState, setMenuState ] = useState('closed')
 
   return (<>
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       </Helmet>
-      <main className={ css.content }>{children}</main>
+      <main className={ clsx(css.content, connected ? css.connected : css.disconnected) }>{children}</main>
       <Menu
         state={ menuState }
         onClick={ () => {
@@ -39,6 +40,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
+  connected: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 

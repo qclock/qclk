@@ -35,4 +35,13 @@ html, body {
 
   position: relative;
   z-index: 5;
+
+  transition: .5s filter ease-in-out;
+}
+
+.connected {
+  filter: blur(0);
+}
+.disconnected {
+  filter: blur(10px);
 }

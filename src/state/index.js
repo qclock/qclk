@@ -29,9 +29,10 @@ export default () => {
   const context = useContext(Context)
 
   remote.addListener((remoteState) => {
-    console.log(remoteState, context.state)
-
     const newState = Object.assign({}, context.state,
+      {
+        connected: true
+      },
       {
         color: remoteState.color
       },
