@@ -8,7 +8,13 @@ export default new class {
   remoteAddress = '192.168.0.4:8080'
 
   constructor () {
-    this.socket = new WebSocket(`/`);
+    if (typeof window == 'undefined') {
+      this.socket = null
+      return
+    }
+
+    const url = this.getWsURL()
+    this.socket = new WebSocket(url);
 
     this.socket.addEventListener('message', (e) => {
       if (this.onUpdate) {
@@ -38,5 +44,13 @@ export default new class {
     this.collectTimer = setTimeout(() => {
       this.send(state)
     }, this.collectDelay)
+  }
+
+  getWsURL () {
+    const {
+      host
+    } = window.location
+
+    return `ws://${host}`
   }
 }()
