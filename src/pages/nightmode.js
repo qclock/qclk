@@ -6,7 +6,7 @@ import Dimmer from '../components/Dimmer'
 const NightMode = () => {
 
   return (
-    <Layout>
+    <Layout connected={ state.connected }>
       <SEO title="QCLK" />
 
       <Dimmer

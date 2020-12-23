@@ -9,7 +9,7 @@ const IndexPage = () => {
 
 
   return (
-    <Layout>
+    <Layout connected={ state.connected }>
       <SEO title="QCLK" />
 
       <TimeWheel

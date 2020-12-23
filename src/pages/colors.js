@@ -7,7 +7,7 @@ import ColorWheel from '../components/ColorWheel'
 const IndexPage = () => {
   const [ state, dispatch ] = useAppState();
 
-  return (<Layout>
+  return (<Layout connected={ state.connected }>
     <SEO title="QCLK" />
     <ColorWheel
       minute={ state.color.minute }
