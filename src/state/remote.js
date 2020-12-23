@@ -8,7 +8,7 @@ export default new class {
   remoteAddress = '192.168.0.4:8080'
 
   constructor () {
-    this.socket = new WebSocket(`ws://${this.remoteAddress}/`);
+    this.socket = new WebSocket(`/`);
 
     this.socket.addEventListener('message', (e) => {
       if (this.onUpdate) {
@@ -39,4 +39,4 @@ export default new class {
       this.send(state)
     }, this.collectDelay)
   }
-}
+}()
