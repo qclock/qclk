@@ -5,7 +5,7 @@ export default new class {
   collectTimer = 0
   throttle = true
   collectDelay = 5
-  remoteAddress = '192.168.0.4:8080'
+  remoteAddress = '192.168.0.4'
 
   constructor () {
     if (typeof window == 'undefined') {
@@ -47,6 +47,10 @@ export default new class {
   }
 
   getWsURL () {
+    if (process.env.NODE_ENV === 'development') {
+      return `ws://${this.remoteAddress}`
+    }
+
     const {
       host
     } = window.location

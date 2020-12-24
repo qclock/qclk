@@ -1,25 +1,14 @@
 import React from 'react'
-import useAppState from '../state'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import ColorWheel from '../components/ColorWheel'
+import Spectrum from '../components/Spectrum'
 
 const IndexPage = () => {
-  const [ state, dispatch ] = useAppState();
-
-  return (<Layout connected={ state.connected }>
+  return (<Layout>
     <SEO title="QCLK" />
-    <ColorWheel
-      minute={ state.color.minute }
-      hour={ state.color.hour }
-      onChange={ (arm, value) => {
-        dispatch({
-          type: 'color',
-          arm,
-          value,
-        })
-      }}
-    />
+    <ColorWheel />
+    <Spectrum />
   </Layout>)
 }
 

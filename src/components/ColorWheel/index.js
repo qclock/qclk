@@ -1,12 +1,23 @@
 import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import clsx from 'clsx';
-
+import useAppState from '../../state'
 import Dial from '../Dial'
-import Spectrum from './Spectrum'
 import css from './colorwheel.module.scss';
 
-const ColorWheel = ({ minute, hour, onChange }) => {
+const ColorWheel = ({  }) => {
+  const [ state, dispatch ] = useAppState();
+
+  const minute = state.color.minute
+  const hour = state.color.hour
+  const onChange = (arm, value) => {
+    dispatch({
+      type: 'color',
+      arm,
+      value,
+    })
+  }
+
   const saturation = 100;
   const lightness = 50;
 
@@ -40,20 +51,15 @@ const ColorWheel = ({ minute, hour, onChange }) => {
         <div className={ css.dot }></div>
       </Dial>
     </div>
-    <Spectrum />
+
   </div>)
 }
 
 ColorWheel.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  minute: PropTypes.array,
-  hour: PropTypes.array,
   className: PropTypes.string,
 }
 
 ColorWheel.defaultProps = {
-  minute: [295, 50, 100],
-  hour: [ 205, 50, 100],
   className: '',
 }
 

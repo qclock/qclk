@@ -20,6 +20,7 @@ export default () => {
   const colors = (new Array(64)).fill(0);
   const angles = colors.map((a, index) => index * (360 / colors.length));
 
+  console.log('render spectrum')
 
   return (<div className={ css.spectrum }>
       <div className={ css.inner }>

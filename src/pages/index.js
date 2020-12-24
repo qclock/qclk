@@ -7,7 +7,7 @@ import TimeWheel from '../components/TimeWheel'
 const IndexPage = () => {
   const [ state, dispatch ] = useAppState();
   return (
-    <Layout connected={ state.connected }>
+    <Layout>
       <SEO title="QCLK" />
       <TimeWheel
         time={ state.time }

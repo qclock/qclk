@@ -29,6 +29,10 @@ export default () => {
   const context = useContext(Context)
 
   remote.addListener((remoteState) => {
+    if (context.state.connected) {
+      return;
+    }
+
     const newState = Object.assign({}, context.state,
       {
         connected: true
@@ -51,15 +55,17 @@ export default () => {
     switch(action.type) {
       case 'color':
         newState = colorReducer(context.state, action)
+        context.setState(newState)
+        remote.upload(newState)
         break;
       case 'time':
         newState = timeReducer(context.state, action)
+        context.setState(newState)
+        remote.upload(newState)
         break;
       default:
         newState = context.state;
     }
-    context.setState(newState)
-    remote.upload(newState)
   }
 
   return [ context.state, dispatch ]

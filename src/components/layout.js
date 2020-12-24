@@ -9,11 +9,16 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import clsx from 'clsx';
+import useAppState from '../state'
 import Menu from "./Menu"
 import Navigation from "./Navigation"
 import css from "./layout.module.scss"
 
-const Layout = ({ connected, children }) => {
+const Layout = ({ children }) => {
+  const [ state, dispatch ] = useAppState();
+
+  const { connected } = state
+
   const [ menuState, setMenuState ] = useState('closed')
 
   return (<>
@@ -40,7 +45,6 @@ const Layout = ({ connected, children }) => {
 }
 
 Layout.propTypes = {
-  connected: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 
