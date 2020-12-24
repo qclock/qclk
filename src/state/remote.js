@@ -13,6 +13,13 @@ export default new class {
       return
     }
 
+    if (process.env.GATSBY_DEMO === 'true') {
+      this.socket = {
+        readyState: 0
+      }
+      return;
+    }
+
     const url = this.getWsURL()
     this.socket = new WebSocket(url);
 

@@ -28,6 +28,29 @@ const timeReducer = (state, action) => {
 export default () => {
   const context = useContext(Context)
 
+  if (process.env.GATSBY_DEMO === 'true') {
+    setTimeout(() => {
+      if (context.state.connected) {
+        return;
+      }
+      const newState = Object.assign({}, context.state,
+        {
+          connected: true
+        },
+        {
+          color: {
+            hour: [ 230, 100, 50 ],
+            minute: [ 130, 100, 50 ]
+          }
+        },
+        {
+          time: new Date()
+        },
+      )
+      context.setState(newState)
+    }, 500);
+  }
+
   remote.addListener((remoteState) => {
     if (context.state.connected) {
       return;
