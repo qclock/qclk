@@ -8,7 +8,19 @@
   z-index: 1;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%)rotate(-90deg);
+  transform: translate(-50%, -50%);
+  background-image: conic-gradient(
+    hsl(0, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(315, 100%, 50%),
+      hsl(360, 100%, 50%)
+    );
+
 
   .inner {
     position: absolute;
