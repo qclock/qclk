@@ -57,16 +57,8 @@ const Navigation = ({ state }) => (<>
             <NightModeIcon />
           </Link>
         </li>
-        <li className={ clsx(css.menuitem, css.menu_settings) }>
-          <Link to="/settings" title="Settings">
-            <SettingsIcon />
-          </Link>
-        </li>
       </ul>
     </nav>
-    <svg className={ css.background } viewBox="0 0 412 276" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="206" cy="138" r="448" />
-    </svg>
   </div>
   <div className={ clsx(css.backblur, css[state]) }></div>
 </>

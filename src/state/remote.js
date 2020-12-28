@@ -4,7 +4,7 @@ export default new class {
 
   collectTimer = 0
   throttle = true
-  collectDelay = 5
+  collectDelay = 2
   remoteAddress = '192.168.0.4'
 
   constructor () {
@@ -14,6 +14,7 @@ export default new class {
     }
 
     if (process.env.GATSBY_DEMO === 'true') {
+      console.log('demo?')
       this.socket = {
         readyState: 0
       }
